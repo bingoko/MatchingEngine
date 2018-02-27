@@ -128,6 +128,7 @@ class BalancesHolder(private val walletDatabaseAccessor: WalletDatabaseAccessor,
             client.put(assetId, AssetBalance(assetId, timestamp, balance))
         } else {
             oldBalance.balance = balance
+            oldBalance.timestamp = timestamp
         }
 
         val wallet = wallets.getOrPut(clientId) { Wallet(clientId) }
@@ -145,6 +146,7 @@ class BalancesHolder(private val walletDatabaseAccessor: WalletDatabaseAccessor,
             client.put(assetId, AssetBalance(assetId, timestamp, balance, balance))
         } else {
             oldBalance.reserved = balance
+            oldBalance.timestamp = timestamp
         }
 
         val wallet = wallets.getOrPut(clientId) { Wallet(clientId) }

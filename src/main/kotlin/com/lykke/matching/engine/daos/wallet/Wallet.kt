@@ -25,6 +25,7 @@ class Wallet: Serializable {
             balances[asset] = AssetBalance(asset, timestamp, balance)
         } else {
             oldBalance.balance = balance
+            oldBalance.timestamp = timestamp
         }
     }
 
@@ -34,6 +35,7 @@ class Wallet: Serializable {
             balances[asset] = AssetBalance(asset, timestamp, reservedBalance, reservedBalance)
         } else {
             oldBalance.reserved = reservedBalance
+            oldBalance.timestamp = timestamp
         }
     }
 }
